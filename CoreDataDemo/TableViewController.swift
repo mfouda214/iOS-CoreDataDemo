@@ -16,7 +16,10 @@ class TableViewController: UITableViewController {
     let firstNames = ["Jane", "John", "Stephen", "Stacy", "Taylor", "Alex", "Eren"]
     let lastNames = ["White", "Black", "Fox", "Jones", "King", "McQueen", "Yeager"]
     let ages = [25, 26, 20, 30, 27, 28, 23]
-    var people = [String]()
+    
+    // MARK: - Make people hold an array of Person entities rather than strings
+//    var people = [String]()
+    var people = [NSManagedObject]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
