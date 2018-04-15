@@ -47,7 +47,7 @@ class TableViewController: UITableViewController {
         
         do {
             let results = try managedContext.fetch(fetchRequest)
-            people = results as! [NSManagedObject]
+            people = results as! [Person]
         } catch let error as NSError {
             print("Fetching Error: \(error.userInfo)")
         }
