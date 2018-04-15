@@ -22,7 +22,9 @@ class TableViewController: UITableViewController {
     /* var people = [String]()
      NSManagedObject will implement all the basic behavior necessary for a Core Data model object such as creation, deletion, editing, and saving. */
     
-    var people = [NSManagedObject]()
+    /* var people = [NSManagedObject]()
+       Now people array type can be changed to person type directly after creating Person subclasess. */
+    var people = [Person]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
