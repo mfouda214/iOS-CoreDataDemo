@@ -13,6 +13,8 @@
 		D47B53A720825E3E00880663 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D47B53A620825E3E00880663 /* Assets.xcassets */; };
 		D47B53AA20825E3E00880663 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D47B53A820825E3E00880663 /* LaunchScreen.storyboard */; };
 		D47B53B22082663600880663 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D47B53B12082663600880663 /* TableViewController.swift */; };
+		D484F25820837BC0001A370F /* Person+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484F25620837BC0001A370F /* Person+CoreDataClass.swift */; };
+		D484F25920837BC0001A370F /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D484F25720837BC0001A370F /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		D47B53A920825E3E00880663 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D47B53AB20825E3E00880663 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D47B53B12082663600880663 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		D484F25620837BC0001A370F /* Person+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataClass.swift"; sourceTree = "<group>"; };
+		D484F25720837BC0001A370F /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				D47B53A820825E3E00880663 /* LaunchScreen.storyboard */,
 				D47B53AB20825E3E00880663 /* Info.plist */,
 				D47B53A320825E3900880663 /* CoreDataDemo.xcdatamodeld */,
+				D484F25620837BC0001A370F /* Person+CoreDataClass.swift */,
+				D484F25720837BC0001A370F /* Person+CoreDataProperties.swift */,
 			);
 			path = CoreDataDemo;
 			sourceTree = "<group>";
@@ -138,6 +144,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D484F25820837BC0001A370F /* Person+CoreDataClass.swift in Sources */,
+				D484F25920837BC0001A370F /* Person+CoreDataProperties.swift in Sources */,
 				D47B53A520825E3900880663 /* CoreDataDemo.xcdatamodeld in Sources */,
 				D47B53B22082663600880663 /* TableViewController.swift in Sources */,
 				D47B539D20825E3900880663 /* AppDelegate.swift in Sources */,
