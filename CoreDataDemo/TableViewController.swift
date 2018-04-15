@@ -62,31 +62,45 @@ class TableViewController: UITableViewController {
     
     @IBAction func addButtonWasTapped(_ sender: UIBarButtonItem) {
         
-//        let randomFirstName = firstNames[Int(arc4random_uniform(UInt32(firstNames.count)))]
-//        let randomLastName = lastNames[Int(arc4random_uniform(UInt32(lastNames.count)))]
-//        let randomAge = ages[Int(arc4random_uniform(UInt32(ages.count)))]
-//
-//        people.append("\(randomFirstName) \(randomLastName) age \(randomAge)")
-//        self.tableView.reloadData()
-//
-            let randomFirstName = firstNames[Int(arc4random_uniform(UInt32(firstNames.count)))]
-            let randomLastName = lastNames[Int(arc4random_uniform(UInt32(lastNames.count)))]
-            let randomAge = ages[Int(arc4random_uniform(UInt32(ages.count)))]
-            
-            let appDelegate = UIApplication.shared.delegate as! AppDelegate
-            let context = appDelegate.persistentContainer.viewContext
-            let entity = NSEntityDescription.entity(forEntityName: "Person", in: context)
-            
-            let person = NSManagedObject(entity: entity!, insertInto: context)
-            person.setValue(randomFirstName, forKey: "firstName")
-            person.setValue(randomLastName, forKey: "lastName")
-            person.setValue(randomAge, forKey: "age")
-            appDelegate.saveContext()
-            people.append(person)
-            
-            self.tableView.reloadData()
+        // MARK: - Update to use person Class rather than value(forKey:)
         
+        
+//            let randomFirstName = firstNames[Int(arc4random_uniform(UInt32(firstNames.count)))]
+//            let randomLastName = lastNames[Int(arc4random_uniform(UInt32(lastNames.count)))]
+//            let randomAge = ages[Int(arc4random_uniform(UInt32(ages.count)))]
+//
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let context = appDelegate.persistentContainer.viewContext
+//            let entity = NSEntityDescription.entity(forEntityName: "Person", in: context)
+//
+//            let person = NSManagedObject(entity: entity!, insertInto: context)
+//            person.setValue(randomFirstName, forKey: "firstName")
+//            person.setValue(randomLastName, forKey: "lastName")
+//            person.setValue(randomAge, forKey: "age")
+//            appDelegate.saveContext()
+//            people.append(person)
+//
+//            self.tableView.reloadData()
+        
+        let randomFirstName = firstNames[Int(arc4random_uniform(UInt32(firstNames.count)))]
+        let randomLastName = lastNames[Int(arc4random_uniform(UInt32(lastNames.count)))]
+        let randomAge = ages[Int(arc4random_uniform(UInt32(ages.count)))]
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Person", in: context)
+        
+        let person = Person(entity: entity!, insertInto: context)
+        person.firstName = randomFirstName
+        person.lastName = randomLastName
+        person.age = Int32(randomAge)
+        appDelegate.saveContext()
+        people.append(person)
+        
+        self.tableView.reloadData()
     }
+        
+    
     
     
     // MARK: - Table view data source
@@ -101,9 +115,15 @@ class TableViewController: UITableViewController {
         return people.count
     }
 
+    // MARK: - Update to use person Class rather than value(forKey:)
+    
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//        cell.textLabel?.text = people[(indexPath as NSIndexPath).row]
+//        let person = people[indexPath.row]
+//        let firstName = person.value(forKey: "firstName")
+//        let lastName = person.value(forKey: "lastName")
+//        let age = person.value(forKey: "age")
+//        cell.textLabel?.text = "\(firstName!) \(lastName!) age \(age!)"
 //
 //        return cell
 //    }
@@ -111,10 +131,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let person = people[indexPath.row]
-        let firstName = person.value(forKey: "firstName")
-        let lastName = person.value(forKey: "lastName")
-        let age = person.value(forKey: "age")
-        cell.textLabel?.text = "\(firstName!) \(lastName!) age \(age!)"
+        let firstName = person.firstName
+        let lastName = person.lastName
+        let age = person.age
+        cell.textLabel?.text = "\(firstName!) \(lastName!) age \(age)"
         
         return cell
     }
